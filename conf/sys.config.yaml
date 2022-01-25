@@ -1,0 +1,14 @@
+data_config: {
+  'glove_pretrain_yelp': '/home/wangsiyu/data/resource/glove.yelp',
+  'glove_pretrain_amazon': '/home/wangsiyu/data/resource/glove.amazon',
+  '2015': {
+    raw: 'data/raw/2015',
+    processed: 'data/processed/2015',
+    output: 'data/output/2015',
+  },
+  '2016': {
+    raw: 'data/raw/2016',
+    processed: 'data/processed/2016',
+    output: 'data/output/2016',
+  }
+}

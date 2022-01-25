@@ -1,0 +1,21 @@
+'SEQ': {
+  'word_dim': 300,
+  'hidden_dim': 300,
+  'dropout': 0.5,
+  'n_layers': 1,
+  'cate_dim': 300
+}
+'GSEQ': {
+  'word_dim': 300,
+  'hidden_dim': 300,
+  'dropout': 0.5,
+  'n_layers': 1,
+  'cate_dim': 300
+}
+'ASEQ': {
+  'word_dim': 300,
+  'hidden_dim': 300,
+  'dropout': 0.5,
+  'n_layers': 1,
+  'cate_dim': 300
+}

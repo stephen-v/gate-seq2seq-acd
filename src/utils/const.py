@@ -1,0 +1,25 @@
+from enum import Enum
+
+EARLY_STOPPING = 10
+SEED = 1234
+
+PAD_NAME = '<PAD>'
+PAD_VALUE = 0
+
+UNK_NAME = '<UNK>'
+UNK_VALUE = 1
+
+BOS_WORD = '<BOS>'
+BOS_WORD_VALUE = 2
+
+EOS_WORD = '<EOS>'
+EOS_WORD_VALUE = 3
+
+MAX_PADDING = 100
+CATE_MAX_PADDING = 10
+
+
+class ModelName(Enum):
+    GSEQ = 'GSEQ'
+    SEQ = 'SEQ'
+    ASEQ = 'ASEQ'
