@@ -23,16 +23,12 @@ class GateSeq2Seq(BaseModel):
         attn_hops = model_settings['attn_hops']
         mlp_d = model_settings['mlp_d']
         hidden_type = model_settings['hidden_type']
-        self.att = model_settings['att']
         self.loss_weight = model_settings['loss_weight']
         self.teacher_forcing_ratio = model_settings['teacher_forcing_ratio']
-        self.encoder = SelfAttentiveEncoder(hidden_dim, attn_hops, mlp_d, n_layers, num_words, word_dim,
-                                            word_embeddings_weight, self.device, dropout)
-        self.decoder = GateDecoder(num_category, cate_dim, hidden_dim, n_layers, dropout, hidden_type, self.att)
+        self.encoder = SelfAttentiveEncoder(hidden_dim, attn_hops, mlp_d, n_layers, num_words, word_dim, word_embeddings_weight, self.device, dropout)
+        self.decoder = GateDecoder(num_category, cate_dim, hidden_dim, n_layers, dropout, hidden_type)
         self.asp_encoder = nn.Linear(hidden_dim * attn_hops * 2 + hidden_dim, hidden_dim)
         self.asp_fc = nn.Linear(hidden_dim, 1)
-        nn.init.xavier_uniform_(self.asp_encoder.weight)
-        nn.init.xavier_uniform_(self.asp_fc.weight)
         self.criterion = nn.CrossEntropyLoss(reduction='none')
         self.criterion1 = nn.BCELoss()
         self.hidden_type = model_settings['hidden_type']
@@ -47,7 +43,7 @@ class GateSeq2Seq(BaseModel):
         mask, num_not_pad_tokens = torch.ones(batch_size, ).to(self.device), 0
         l = torch.tensor([0.0]).to(self.device)
         for y in aspect_label.permute(1, 0):
-            output, hidden = self.decoder(input, hidden, asp_vector, encoder_outputs)
+            output, hidden = self.decoder(input, hidden, asp_vector)
             teacher_force = random() < self.teacher_forcing_ratio
             top1 = output.argmax(1)
             input = y if teacher_force else top1
@@ -66,7 +62,7 @@ class GateSeq2Seq(BaseModel):
         input = torch.tensor([BOS_WORD_VALUE] * batch_size).to(self.device)
         outputs = []
         for i in range(CATE_MAX_PADDING):
-            output, hidden = self.decoder(input, hidden, asp_vector, encoder_outputs)
+            output, hidden = self.decoder(input, hidden, asp_vector)
             top1 = output.argmax(1)
             if i == 0 and top1.item() <= 3:
                 top1 = torch.topk(output, k=2)[1][0][-1]
@@ -85,4 +81,4 @@ class GateSeq2Seq(BaseModel):
         return logit
 
     def get_model_name(self):
-        return 'GateSeq2Seq_{}_{}.pkl'.format(self.hidden_type, self.att)
+        return 'GateSeq2Seq_{}.pkl'.format(self.hidden_type)

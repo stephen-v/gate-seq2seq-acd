@@ -1,14 +1,5 @@
-import sys
-
-from torch.optim import Adam
-from tqdm import tqdm
-
-from src.dataset.ReviewDataset import ReviewDataset
 from src.models.Seq2Seq import Seq2Seq
 from src.trainers.BaseTrainer import BaseTrainer
-from src.utils.const import MAX_PADDING, CATE_MAX_PADDING, EARLY_STOPPING
-from src.utils.metrics import compute_f1, compute_precision, compute_recall
-import numpy as np
 
 
 class Seq2SeqTrainer(BaseTrainer):

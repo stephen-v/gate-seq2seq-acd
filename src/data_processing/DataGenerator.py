@@ -95,10 +95,3 @@ class DataGenerator(object):
         pickle.dump(cate2id, open(cate2id_path(self.data_source, self.data_category), 'wb'))
         return word2id, cate2id
 
-    def print_data(self, data):
-        for line in data:
-            idx, text, text_tokens, cate_list, single_label = line
-            print('sentence {} ================================\n'.format(idx))
-            print('{}\n'.format(text))
-            print('{}\n'.format(cate_list))
-            print('{}\n'.format(single_label))
