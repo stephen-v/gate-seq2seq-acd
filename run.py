@@ -24,9 +24,8 @@ if __name__ == '__main__':
     parser.add_argument('--teacher_forcing_ratio', default=1, type=float)
     parser.add_argument('--mlp_d', default='50', type=int)
     parser.add_argument('--attn_hops', default='500', type=int)
-    parser.add_argument('--hidden_type', default='gate', type=str, help='gate,asp,hidden,cat')
+    parser.add_argument('--hidden_type', default='gate', type=str, help='gate,hidden,cat')
     parser.add_argument('--mode', default='train', type=str)
-    parser.add_argument('--att', default='T', type=str)
     args = parser.parse_args()
     set_determinism(seed=SEED)
     if args.model_name == ModelName.SEQ:
