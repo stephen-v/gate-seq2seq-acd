@@ -11,7 +11,6 @@ import nltk
 import yaml
 from scipy.io.idl import AttrDict
 import numpy as np
-import jieba_fast as jieba
 from tqdm import tqdm
 
 from src.utils.const import UNK_NAME, PAD_NAME, PAD_VALUE, UNK_VALUE

@@ -7,6 +7,10 @@ from monai.utils import set_determinism
 
 set_determinism(seed=SEED)
 
+# Dataset contains
+# 2015 Restaurants
+# 2016 Laptops
+
 data_source = '2015'
 category = 'Restaurants'
 

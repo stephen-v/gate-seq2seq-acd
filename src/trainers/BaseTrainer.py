@@ -124,8 +124,8 @@ class BaseTrainer(object):
         print('model:{} , only have multiple labels sentence, f1 score:{} , p:{} ,r:{}'.format(model.get_model_name(),
                                                                                                f1_2, p_2, r_2))
 
-        self.__print_bad_cases__(bad_cases_1)
-        self.__print_bad_cases__(bad_cases_2)
+        # self.__print_bad_cases__(bad_cases_1)
+        # self.__print_bad_cases__(bad_cases_2)
 
         return f1
 
