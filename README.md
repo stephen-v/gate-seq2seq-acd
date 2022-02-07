@@ -4,18 +4,17 @@
 pytorch
 nltk
 tqdm
-
 ```
 
 # config
 
-(1) Download Pretrained Wordembedding
+(1) Download Pretrained Word embeddings
 
 ```shell
 https://drive.google.com/drive/folders/189c1i5XESAT6ibJbaQ8z9WJNWA0hUWeE?usp=sharing
 ```
 
-(2) Config Wordembedding Path
+(2) Config Worde mbeddings Path
 
 conf/sys.config.yaml
 
