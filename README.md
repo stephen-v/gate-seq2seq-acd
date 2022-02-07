@@ -18,7 +18,7 @@ https://drive.google.com/drive/folders/189c1i5XESAT6ibJbaQ8z9WJNWA0hUWeE?usp=sha
 
 conf/sys.config.yaml
 
-```json
+```
 'glove_pretrain_yelp': '/data/dataset/word2vec',
 'glove_pretrain_amazon': '/data/dataset/word2vec',
 ```
