@@ -41,7 +41,7 @@ python run.py --model_name=GSEQ --mode=train --lr=0.0001 --batch_size=4 --attn_h
 2.2 Gen-Seq2Seq(Baseline)
 
 ```shell
-python run.py --model_name=GSEQ --mode=train --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants
+python run.py --model_name=SEQ --mode=train --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants
 ```
 
 2.3 Att-Seq2Seq(Baseline)
@@ -62,7 +62,7 @@ python run.py --model_name=GSEQ --mode=eval --lr=0.0001 --batch_size=4 --attn_ho
 2.2 Gen-Seq2Seq(Baseline)
 
 ```shell
-python run.py --model_name=GSEQ --mode=eval --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants
+python run.py --model_name=SEQ --mode=eval --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants
 ```
 
 2.3 Att-Seq2Seq(Baseline)
