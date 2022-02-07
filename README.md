@@ -52,20 +52,20 @@ python run.py --model_name=ASEQ --mode=train --lr=0.0001 --batch_size=4 --data_s
 
 # 3. Evaluations
 
-2.1 GSM(Our model)
+3.1 GSM(Our model)
 
 ```shell
 python run.py --model_name=GSEQ --mode=eval --lr=0.0001 --batch_size=4 --attn_hops=50 --mlp_d=100 --data_source=2016 --loss_weight=0.8 --interval=100 --data_category=Laptops
 python run.py --model_name=GSEQ --mode=eval --lr=0.0001 --batch_size=4 --attn_hops=100 --mlp_d=200 --data_source=2015 --loss_weight=0.8 --interval=100 --data_category=Restaurants
 ```
 
-2.2 Gen-Seq2Seq(Baseline)
+3.2 Gen-Seq2Seq(Baseline)
 
 ```shell
 python run.py --model_name=SEQ --mode=eval --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants
 ```
 
-2.3 Att-Seq2Seq(Baseline)
+3.3 Att-Seq2Seq(Baseline)
 
 ```shell
 python run.py --model_name=ASEQ --mode=eval --lr=0.0001 --batch_size=4 --data_source=2015 --interval=100 --data_category=Restaurants

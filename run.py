@@ -10,7 +10,7 @@ from src.utils.const import ModelName, SEED
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_name', default='ASEQ', type=ModelName)
+    parser.add_argument('--model_name', default='GSEQ', type=ModelName)
     parser.add_argument('--data_source', default='2015', type=str)
     parser.add_argument('--data_category', default='Restaurants', type=str)
     parser.add_argument('--lr', default=0.0001, type=float)
