@@ -33,10 +33,7 @@ class DataGenerator(object):
             text_tokens = []
 
             # aspect category
-            if self.data_source == '2014':
-                cates = sentence.getElementsByTagName('aspectCategory')
-            elif self.data_source == '2016' or self.data_source == '2015':
-                cates = sentence.getElementsByTagName('Opinion')
+            cates = sentence.getElementsByTagName('Opinion')
             # word2id
             for word in word_tokenizer.tokenize(text):
                 # if word in stopwords:
@@ -55,7 +52,6 @@ class DataGenerator(object):
                 if cate_str not in cate2id:
                     cate2id[cate_str] = len(cate2id)
 
-            # 添加eos表示序列结束
             if len(cate_list) == 0:
                 not_have_aspect_nums += 1
                 continue
