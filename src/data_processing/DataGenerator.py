@@ -71,13 +71,17 @@ class DataGenerator(object):
     def generate_data(self):
         word2id = {PAD_NAME: PAD_VALUE, UNK_NAME: UNK_VALUE}
         cate2id = {PAD_NAME: PAD_VALUE, UNK_NAME: UNK_VALUE, BOS_WORD: BOS_WORD_VALUE, EOS_WORD: EOS_WORD_VALUE}
+
         train_data, max_word, max_cates, word2id, cate2id = self._parser_xml_(
             os.path.join(self.raw_path, '{}_Train.xml'.format(self.data_category)),
             word2id, cate2id)
+
+        # In test dataset, unknow words embedding instead by pre-trained words embedding. If pre-trained is not exits instead by raandom vector
         test_data, max_word, max_cates, word2id, cate2id = self._parser_xml_(
             os.path.join(self.raw_path, '{}_Test.xml'.format(self.data_category)),
             word2id, cate2id)
-        print('there are {} words and {} categories'.format(len(word2id) - 4, len(cate2id) - 4))
+
+        print('there are {} words and {} categories'.format(len(word2id) - 2, len(cate2id) - 4))
         np.random.shuffle(train_data)
         np.random.shuffle(test_data)
         total = len(train_data)

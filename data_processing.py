@@ -11,8 +11,8 @@ set_determinism(seed=SEED)
 # 2015 Restaurants
 # 2016 Laptops
 
-data_source = '2015'
-category = 'Restaurants'
+data_source = '2016'
+category = 'Laptops'
 
 data_generator = DataGenerator(data_source, category)
 word2id, cate2id = data_generator.generate_data()
