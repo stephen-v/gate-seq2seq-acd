@@ -76,7 +76,6 @@ class DataGenerator(object):
             os.path.join(self.raw_path, '{}_Train.xml'.format(self.data_category)),
             word2id, cate2id)
 
-        # In test dataset, unknow words embedding instead by pre-trained words embedding. If pre-trained is not exits instead by raandom vector
         test_data, max_word, max_cates, word2id, cate2id = self._parser_xml_(
             os.path.join(self.raw_path, '{}_Test.xml'.format(self.data_category)),
             word2id, cate2id)
