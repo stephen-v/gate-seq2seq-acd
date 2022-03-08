@@ -5,7 +5,7 @@ from random import random
 from src.models.BaseModel import BaseModel
 from src.models.layers.Seq2Seq.Decoder import Decoder
 from src.models.layers.Seq2Seq.RNNEncoder import RNNEncoder
-from src.utils.const import BOS_WORD_VALUE, EOS_WORD_VALUE, CATE_MAX_PADDING
+from src.utils.const import BOS_WORD_VALUE, EOS_WORD_VALUE, CATE_MAX_PADDING, PAD_VALUE
 
 
 class Seq2Seq(BaseModel):
@@ -38,7 +38,7 @@ class Seq2Seq(BaseModel):
             input = y if teacher_force else top1
             l = l + (mask * self.criterion(output, y)).sum()
             num_not_pad_tokens += mask.sum().item()
-            mask = mask * (y != EOS_WORD_VALUE).float()
+            mask = mask * (y != PAD_VALUE).float()
         l = l / num_not_pad_tokens
         return l
 

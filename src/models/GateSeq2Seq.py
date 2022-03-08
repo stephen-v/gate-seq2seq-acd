@@ -49,7 +49,7 @@ class GateSeq2Seq(BaseModel):
             input = y if teacher_force else top1
             l = l + (mask * self.criterion(output, y)).sum()
             num_not_pad_tokens += mask.sum().item()
-            mask = mask * (y != EOS_WORD_VALUE).float()
+            mask = mask * (y != PAD_VALUE).float()
         l = l / num_not_pad_tokens
         asp_l = self.criterion1(asp_logit.squeeze(1), aspect_num_label)
         loss = self.loss_weight * l + (1 - self.loss_weight) * asp_l
