@@ -38,7 +38,9 @@ class Seq2Seq(BaseModel):
             input = y if teacher_force else top1
             l = l + (mask * self.criterion(output, y)).sum()
             num_not_pad_tokens += mask.sum().item()
-            mask = mask * (y != PAD_VALUE).float()
+            # EOS后面全是PAD.下面一行保证一旦遇到EOS接下来的循环中mask就一直是0
+            # https://github.com/ShusenTang/Dive-into-DL-PyTorch/blob/master/code/chapter10_natural-language-processing/10.12_machine-translation.ipynb
+            mask = mask * (y != EOS_WORD_VALUE).float()
         l = l / num_not_pad_tokens
         return l
 

@@ -164,7 +164,6 @@ class BaseTrainer(object):
                     predict_asp_num_label = 'None'
                     bad_cases.append(
                         [review, real_label, predict_label, real_asp_num_label.item(), predict_asp_num_label])
-
         average = 'micro'
         real_labels = np.array(real_labels)
         predict_labels = np.array(predict_labels)
